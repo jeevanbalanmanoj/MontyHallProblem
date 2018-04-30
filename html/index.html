@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+ <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+     <!-- google.charts.setOnLoadCallback(drawChart);-->
+      function drawChart(noSwitch,doSwitch) {
+        var data = google.visualization.arrayToDataTable([
+          ['Switch or No switch', 'No of wins'],
+          ['No switching',     noSwitch],
+          ['Switch',      doSwitch],
+
+        ]);
+
+        var options = {
+          title: ' Your chance of winning',
+          is3D: true,
+		   colors: ['#e60000', '#004d00'],
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+<script src="../js/script.js"></script>
+
+
+
+   
+<style>
+body{
+margin-left:2%;
+}
+#problemStatement{
+padding:1%;
+font-size:1.8em;
+margin-top:18%;
+margin-left:10%;
+margin-right:10%;
+
+}
+#header{
+margin-left:35%;
+}
+#simForm{
+position:fixed;
+bottom:1%;
+}
+</style>
+
+<title>Monty hall problem</title>
+</head>
+<body>
+<div id="header">
+<h1>Monty hall problem</h1>
+<h3>A simulation<h3>
+</div>
+<div id="piechart_3d" style="width: 900px; height: 500px;margin-left:25%"></div>
+<div id="problemStatement"><i>Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say Door A, and the host, who knows what's behind the doors, opens another door, say Door C, which has a goat. He then says to you, "Do you want to pick Door B?" Is it to your advantage to switch your choice?</i>
+</div>
+<form id="simForm" style="margin-bottom:5%;margin-left:35%;"" class ="form-inline" role="form">
+  <div class="form-group">
+    <label >Number of simulation runs:</label>
+    <input type="number" class="form-control" id="count" required>
+  </div>  
+<button  type="button" id="submit" class="btn btn-default">Run</button>
+</form>
+
+	
+</body>
+</html>
